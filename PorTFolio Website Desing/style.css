@@ -567,3 +567,51 @@ main {
     color: #b8b8b8;
 }
 
+
+/* --- Mobile responsive (added: bento grid collapses to 2 columns, then 1) --- */
+@media (max-width: 900px) {
+    main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        grid-template-areas:
+            "a1 a1"
+            "a2 a3"
+            "a4 a8"
+            "a5 a6"
+            "a7 a7"
+            "a9 a9"
+            "a10 a10"
+            "a11 a11";
+        gap: 12px;
+    }
+    .a2, .a3, .a5, .a7 {
+        min-height: 180px;
+    }
+    .a1 {
+        padding: 20px;
+    }
+}
+@media (max-width: 600px) {
+    main {
+        width: calc(100% - 24px);
+        margin: 12px;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "a1" "a2" "a3" "a4" "a5" "a6" "a7" "a8" "a9" "a10" "a11";
+        gap: 12px;
+    }
+    .a10, .a11 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .learning-text {
+        max-width: 100%;
+    }
+    .work-desc {
+        max-width: 100%;
+    }
+    .tagline {
+        font-size: 26px;
+    }
+}
